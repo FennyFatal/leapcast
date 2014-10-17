@@ -28,7 +28,14 @@ def _get_chrome_path():
             os.path.join(
                 os.getenv('ProgramFiles(x86)', 'C:\\Program Files (x86)'),
                 'Google\\Chrome\\Application\\chrome.exe'
-            )
+            ),
+            os.path.join(
+                os.getenv('LOCALAPPDATA', os.path.join(
+                    os.getenv('USERPROFILE'),
+                    'Local Settings\\Application Data'
+                )),
+                'Google\\Chrome SxS\\Application\\chrome.exe'
+            ),
         ]
     elif sys.platform == 'darwin':
         globs = [
